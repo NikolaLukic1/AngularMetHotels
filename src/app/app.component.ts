@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Article } from './article/article.model';
+import { Accomodation } from './accomodation/accomodation.model';
 
 @Component({
   selector: 'app-root',
@@ -7,20 +7,34 @@ import { Article } from './article/article.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  articles: Article[]; //osobina komponente
+  accomodations: Accomodation[];
   constructor() {
-  this.articles = [
-  new Article('IT255 - Veb sistemi 1', 'http://www.metropolitan.ac.rs', 3),
-  new Article('Fullstack', 'http://fullstack.io', 2),
-  new Article('Angular Homepage', 'http://angular.io', 1),
-  ];
+  this.accomodations = [
+  new Accomodation('Hotel Grand', 45),
+  new Accomodation('Hotel Rtanj',  22),  
+];
   }
 
-  addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
-    console.log(`Adding article title: ${title.value} and link: ${link.value}`);
-    this.articles.push(new Article(title.value, link.value, 0));
+  addAccomodation(title: HTMLInputElement, price: HTMLInputElement): boolean {
+    console.log(`Adding accomodation title: ${title.value} and price: ${price.value}`);
+    this.accomodations.push(new Accomodation(title.value, parseInt(price.value)));
     title.value = '';
-    link.value = '';
+    price.value = '';
     return false;
     }
+  // funkcija za randomizaciju elemenata u nizu
+  shuffleAccomodations(array){
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+  }
 }

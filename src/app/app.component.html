@@ -1,19 +1,27 @@
 <form class="ui large form segment">
-  <h3 class="ui header">Add a Link</h3>
+  <h3 class="ui header">Add a Accommodation</h3>
   <div class="field">
   <label for="title">Title:</label>
   <input name="title" #newtitle>
   </div>
   <div class="field">
-  <label for="link">Link:</label>
-  <input name="link" #newlink>
+  <label for="link">Price:</label>
+  <input name="link" #newprice>
   </div>
-  <button (click)="addArticle(newtitle,newlink)" class="ui positive right floated button">
-    Submit link
+  <button (click)="addAccomodation(newtitle,newprice)" class="ui positive right floated button">
+    Submit
     </button>
   </form>
+  <div class=" mb-5">
+    <h3>Search</h3>
+      <input [(ngModel)]="searchByPrice" placeholder="Search by price">
+    </div>
 
   <div class="ui grid posts">
-      <app-article *ngFor="let article of articles" [article]="article">
-      </app-article>
+      <app-accomodation *ngFor="let accomodation of accomodations | filter : searchByPrice; index as i" [accomodation]="accomodation">
+      </app-accomodation>
   </div>
+
+  <button  (click)="shuffleAccomodations(accomodations)" class="ui positive right floated button">
+    Randomize
+  </button>
