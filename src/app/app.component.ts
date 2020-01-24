@@ -16,7 +16,7 @@ export class AppComponent {
   }
 
   addAccomodation(title: HTMLInputElement, price: HTMLInputElement, description: HTMLInputElement): boolean {
-    console.log(`Adding accomodation title: ${title.value} and price: ${price.value}`);
+    console.log(`Adding accomodation title: ${title.value}, price: ${price.value} and description: ${description.value}`);
     this.accomodations.push(new Accomodation(title.value, parseInt(price.value), description.value));
     title.value = '';
     price.value = '';

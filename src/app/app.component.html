@@ -1,14 +1,18 @@
 <form class="ui large form segment">
   <h3 class="ui header">Add a Accommodation</h3>
   <div class="field">
-  <label for="title">Title:</label>
-  <input name="title" #newtitle>
+      <label for="title">Title:</label>
+      <input name="title" #newtitle>
   </div>
   <div class="field">
-  <label for="link">Price:</label>
-  <input name="link" #newprice>
+      <label for="description">Description:</label>
+      <textarea rows="3" name="description" #newdescription></textarea>
   </div>
-  <button (click)="addAccomodation(newtitle,newprice)" class="ui positive right floated button">
+  <div class="field">
+      <label for="price">Price:</label>
+      <input name="price" #newprice>
+  </div>
+  <button (click)="addAccomodation(newtitle,newprice, newdescription)" class="ui positive right floated button">
     Submit
     </button>
   </form>
