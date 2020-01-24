@@ -21,7 +21,7 @@
       <app-accomodation *ngFor="let accomodation of accomodations | filter : searchByPrice; index as i" [accomodation]="accomodation">
       </app-accomodation>
   </div>
-
+ 
   <button  (click)="shuffleAccomodations(accomodations)" class="ui positive right floated button">
     Randomize
   </button>
