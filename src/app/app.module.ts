@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccomodationComponent } from './accomodation/accomodation.component';
 import { FilterPipePipe } from './helpers/filter-pipe.pipe';
-import { FormsModule } from '@angular/forms';
-import { AddAccomodationComponent } from './add-accomodation/add-accomodation.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormComponent } from './form/form.component';
 
 
 @NgModule({
@@ -14,12 +14,13 @@ import { AddAccomodationComponent } from './add-accomodation/add-accomodation.co
     AppComponent,
     AccomodationComponent,
     FilterPipePipe,
-    AddAccomodationComponent
+    FormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

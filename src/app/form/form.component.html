@@ -1,0 +1,40 @@
+<form class="ui large form segment" 
+[formGroup]="myForm"
+(ngSubmit)="onSubmit(myForm.value)"
+[class.error]="!myForm.valid && myForm.touched">
+    <h3 class="ui header">Add a Accommodation</h3>
+    <div class="field"
+    [class.error]="!myForm.get('title').valid && myForm.get('title').touched">
+        <label for="title">Title:</label>
+        <input name="title" 
+                type="text"
+                id="title"
+                [formControl]="myForm.get('title')"
+                [(ngModel)]="title">
+    </div>
+    <div class="field"
+    [class.error]="!myForm.get('description').valid && myForm.get('description').touched">
+        <label for="description">Description:</label>
+        <textarea rows="3" name="description" 
+                id="description"
+                [formControl]="myForm.get('description')"
+                [(ngModel)]="description"></textarea>
+    </div>
+    <div class="field"
+    [class.error]="!myForm.get('price').valid && myForm.get('price').touched">
+        <label for="price">Price:</label>
+        <input name="price" 
+                id="price"
+                [formControl]="myForm.get('price')"
+                [(ngModel)]="price">
+    </div>
+    <div *ngIf="!myForm.valid"
+      class="ui error message">Form is not Valid</div>
+      <div *ngIf="!myForm.get('title').valid"
+      class="ui error message">Form is not Valid</div>
+      <div *ngIf="!myForm.get('description').valid"
+      class="ui error message">Description is not Valid</div>
+      <div *ngIf="!myForm.get('price').valid"
+      class="ui error message">Price is not Valid</div>
+    <button type="submit" class="ui positive right floated button">Submit</button>
+</form>

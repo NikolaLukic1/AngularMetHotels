@@ -1,5 +1,10 @@
 import { Component} from '@angular/core';
 import { Accomodation } from './accomodation/accomodation.model';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators
+} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +22,7 @@ export class AppComponent {
 
 
   addAccomodationOne(accomodation){
-    this.accomodations.push(new Accomodation(accomodation[0].value,  accomodation[1].value, accomodation[2].value));
+    this.accomodations.push(new Accomodation(accomodation.title,  accomodation.price, accomodation.description));
   }
   
   deleteRow(accomodation : Accomodation){
@@ -55,4 +60,6 @@ export class AppComponent {
 
   return array;
   }
+
+  onSubmit(){}
 }

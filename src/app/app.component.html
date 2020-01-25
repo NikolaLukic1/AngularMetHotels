@@ -1,20 +1,4 @@
-<form class="ui large form segment" >
-  <h3 class="ui header">Add a Accommodation</h3>
-  <div class="field">
-      <label for="title">Title:</label>
-      <input name="title" #newtitle>
-  </div>
-  <div class="field">
-      <label for="description">Description:</label>
-      <textarea rows="3" name="description" #newdescription></textarea>
-  </div>
-  <div class="field">
-      <label for="price">Price:</label>
-      <input name="price" #newprice>
-  </div>
-  <!-- dodavanje komponenta -->
-  <app-add-accomodation (accToAdd)="addAccomodationOne($event)" [accomodation]="[newtitle,newprice, newdescription]"></app-add-accomodation>
-  </form>
+<app-form (accToAdd)="addAccomodationOne($event)" [accomodation]=""></app-form>
   <div class=" mb-5">
     <h3>Search</h3>
       <input [(ngModel)]="searchByPrice" placeholder="Search by price">
