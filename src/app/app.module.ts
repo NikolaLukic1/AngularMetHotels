@@ -7,6 +7,7 @@ import { AccomodationComponent } from './accomodation/accomodation.component';
 import { FilterPipePipe } from './helpers/filter-pipe.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './form/form.component';
+import { RoomserviceService } from './services/roomservice.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { FormComponent } from './form/form.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ RoomserviceService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

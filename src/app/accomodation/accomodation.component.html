@@ -4,8 +4,12 @@
     {{ accomodation.title }} room
     </p>
     <div class="meta">{{ accomodation.description}}</div>
+    <div class="ui input small">
+        <p class="ui small header positive">Number of nights</p>
+        <input type="number" placeholder="1" #value (change)="setPrice(value.value, accomodation.price)">
+    </div>
     <p class="ui medium header positive right floated" >
-    Price {{ accomodation.price }} $
+    Price {{ finPrice }} $
     </p>
     <button class="ui negative right floated button" style="clear: right" (click)="deleteAccomodation()"> Delete </button>
     <button class="ui positive left floated button" (click)="changeAccomodation()"> Change </button>
