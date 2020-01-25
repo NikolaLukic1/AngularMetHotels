@@ -1,4 +1,4 @@
-<form class="ui large form segment">
+<form class="ui large form segment" >
   <h3 class="ui header">Add a Accommodation</h3>
   <div class="field">
       <label for="title">Title:</label>
@@ -12,9 +12,8 @@
       <label for="price">Price:</label>
       <input name="price" #newprice>
   </div>
-  <button (click)="addAccomodation(newtitle,newprice, newdescription)" class="ui positive right floated button">
-    Submit
-    </button>
+  <!-- dodavanje komponenta -->
+  <app-add-accomodation (accToAdd)="addAccomodationOne($event)" [accomodation]="[newtitle,newprice, newdescription]"></app-add-accomodation>
   </form>
   <div class=" mb-5">
     <h3>Search</h3>
@@ -22,7 +21,9 @@
     </div>
 
   <div class="ui grid posts">
-      <app-accomodation *ngFor="let accomodation of accomodations | filter : searchByPrice; index as i" [accomodation]="accomodation">
+      <app-accomodation *ngFor="let accomodation of accomodations | filter : searchByPrice; index as i"
+      (deleteAcc)="deleteRow($event)"
+      (changeAcc)="changeRow($event)" [accomodation]="accomodation">
       </app-accomodation>
   </div>
  

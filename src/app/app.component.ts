@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { Accomodation } from './accomodation/accomodation.model';
 
 @Component({
@@ -15,14 +15,31 @@ export class AppComponent {
 ];
   }
 
-  addAccomodation(title: HTMLInputElement, price: HTMLInputElement, description: HTMLInputElement): boolean {
-    console.log(`Adding accomodation title: ${title.value}, price: ${price.value} and description: ${description.value}`);
-    this.accomodations.push(new Accomodation(title.value, parseInt(price.value), description.value));
-    title.value = '';
-    price.value = '';
-    description.value = '';
-    return false;
+
+  addAccomodationOne(accomodation){
+    this.accomodations.push(new Accomodation(accomodation[0].value,  accomodation[1].value, accomodation[2].value));
+  }
+  
+  deleteRow(accomodation : Accomodation){
+    this.accomodations = this.accomodations.filter( it => {
+      return it.title != accomodation.title});
+  }
+
+  changeRow(accomodation : Accomodation){
+    let index = this.accomodations.findIndex(i => i.title === accomodation.title);
+    this.accomodations[index].title = this._generateString(6);
+  }
+
+  private _generateString(length) {
+    let result = '';
+    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let charactersLength = characters.length;
+    for ( let i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
+    return result;
+ }
+
   // funkcija za randomizaciju elemenata u nizu
   shuffleAccomodations(array){
     var currentIndex = array.length, temporaryValue, randomIndex;
